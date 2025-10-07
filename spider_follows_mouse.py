@@ -31,14 +31,21 @@ def draw_legs():
     # leg 4
     line(x-16, y+12, x-50, y+40)
 
+def draw_head():
+  """Tie coordinates to edge of body"""
+
+  bottom_x = x
+  bottom_y = y + (40 + x_scale)/2
+  width = 10 + x_scale/2
+  height = 10 + x_scale/2
+
+  rect(bottom_x - width/2, bottom_y, width, height)
 
 def draw_spider():  
   # body
-  circle(x, y, 40 * x_scale)
-  
-  # head
-  rect(x - 5, y + 15, 10 * x_scale, 10 * x_scale)
+  circle(x, y, 40 + x_scale)
 
+  draw_head()  
   draw_legs()
 
 def setup():
@@ -56,8 +63,8 @@ def key_pressed():
   """Press 1 to increase size, 2 to decrease size"""
   global x_scale
   if key == '1':
-    x_scale += 1
-  if key == '2' and x_scale > 1:
-    x_scale -= 1
+    x_scale += 2
+  if key == '2' and (x_scale - 2) > 1:
+    x_scale -= 2
 
 run()
