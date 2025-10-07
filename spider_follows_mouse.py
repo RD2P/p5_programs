@@ -52,12 +52,8 @@ def setup():
   size(600, 600)
 
 def draw():
-  global x,y
   background(255)
   draw_spider()
-  x = mouse_x
-  y = mouse_y
-
 
 def key_pressed():
   """Press 1 to increase size, 2 to decrease size"""
@@ -66,5 +62,10 @@ def key_pressed():
     x_scale += 2
   if key == '2' and (x_scale - 2) > 1:
     x_scale -= 2
+
+def mouse_pressed():
+  global x,y
+  x = mouse_x
+  y = mouse_y
 
 run()
